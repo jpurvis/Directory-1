@@ -1,0 +1,5 @@
+rootProject.name = "Directory"
+include ':app'
+include ':colleagues'
+include ':rooms'
+include ':designcomponents'

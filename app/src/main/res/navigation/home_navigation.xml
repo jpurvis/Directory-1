@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_navigation"
+    app:startDestination="@id/colleaguesFragment">
+
+    <fragment
+        android:id="@+id/colleaguesFragment"
+        android:name="com.example.directory.ColleaguesFragment"
+        android:label="@string/colleagues"
+        tools:layout="@layout/fragment_colleagues" >
+        <action
+            android:id="@+id/action_colleaguesFragment2_to_roomsFragment2"
+            app:destination="@id/roomsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/roomsFragment"
+        android:name="com.example.directory.RoomsFragment"
+        android:label="@string/rooms"
+        tools:layout="@layout/fragment_rooms" />
+</navigation>
