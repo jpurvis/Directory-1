@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- List View Components -->
+    <declare-styleable name="ListItemView">
+        <attr name="iconStart" format="reference" />
+        <attr name="labelText" format="string" />
+        <attr name="actionEnd" format="enum">
+            <enum name="none" value="0" />
+            <enum name="chevron" value="1" />
+            <enum name="toggleSwitch" value="2" />
+        </attr>
+    </declare-styleable>
+
+</resources>

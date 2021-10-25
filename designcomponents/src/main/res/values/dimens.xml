@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Standard Margins & Padding -->
+    <dimen name="content_padding_horizontal">16dp</dimen>
+
+    <!-- List View Components -->
+    <dimen name="list_item_minimum_height">80dp</dimen>
+    <dimen name="list_item_label_start_margin_icon">24dp</dimen>
+    <dimen name="content_padding_internal_horizontal">16dp</dimen>
+    <dimen name="list_item_label_start_margin_noicon">0dp</dimen>
+
+    <!--Image size-->
+    <dimen name="image_medium">60dp</dimen>
+</resources>

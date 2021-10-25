@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!-- Component Styles -->
+    <style name="ClickableForeground" parent="Surface.Ripple.Foreground">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@null</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <!--ItemList-->
+    <style name="ItemList" />
+
+    <style name="ItemList.Background">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:clipChildren">false</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:background">?colorSurface</item>
+        <item name="android:paddingStart">@dimen/content_padding_horizontal</item>
+        <item name="android:paddingEnd">@dimen/content_padding_horizontal</item>
+    </style>
+
+    <style name="ItemList.IconStart">
+        <item name="android:layout_width">@dimen/image_medium</item>
+        <item name="android:layout_height">@dimen/image_medium</item>
+        <item name="android:visibility">gone</item>
+        <item name="tint">?colorOnSurface</item>
+    </style>
+
+    <style name="ItemList.TitleLabel">
+        <item name="android:textColor">?colorOnSurface</item>
+        <item name="android:textAppearance">?textAppearanceBody1</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">@dimen/list_item_label_start_margin_icon</item>
+        <item name="layout_goneMarginStart">@dimen/list_item_label_start_margin_noicon</item>
+    </style>
+
+    <style name="ItemList.RightContentHolder">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:clipChildren">false</item>
+        <item name="android:clipToPadding">false</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">@dimen/content_padding_internal_horizontal</item>
+    </style>
+
+    <!-- region Surface Styles -->
+    <style name="Surface">
+        <item name="android:background">@color/surface</item>
+    </style>
+
+    <!-- Base Ripple Style -->
+    <style name="Surface.Ripple">
+        <item name="colorControlHighlight">?colorPrimary</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <!-- Selectable Item Ripple Feedback Styles -->
+    <style name="Surface.Ripple.Foreground">
+        <item name="android:theme">@style/Surface.Ripple</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+</resources>
