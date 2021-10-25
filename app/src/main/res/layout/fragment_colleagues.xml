@@ -6,14 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".ColleaguesFragment">
 
-    <TextView
+
+    <com.example.designcomponents.ListItemView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fragment Colleagues"
-        android:gravity="center"
+        app:iconStart="@drawable/ic_launcher_background"
+        app:actionEnd="chevron"
+        app:labelText="@string/colleagues"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
