@@ -31,7 +31,7 @@ class PeopleRepositoryTest {
     }
 
     @Test
-    fun colleagues_repositoryComplete_without_errors() {
+    fun colleagues_repository_complete_without_errors() {
         val colleagues = ColleaguesFactory.makeColleaguesResponse()
         Mockito.`when`(mockDataSource.getColleaguesAsync()).thenReturn(Single.just(colleagues))
         val testObserver = peopleRepository.getColleagues().toObservable().test()
@@ -41,7 +41,7 @@ class PeopleRepositoryTest {
     }
 
     @Test
-    fun colleagues_repositoryComplete_with_errors() {
+    fun colleagues_repository_complete_with_errors() {
         val error = ColleaguesFactory.makeResponseError()
         Mockito.`when`(mockDataSource.getColleaguesAsync()).thenReturn(Single.error(error))
         val testObserver = peopleRepository.getColleagues().toObservable().test()
