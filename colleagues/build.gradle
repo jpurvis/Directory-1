@@ -13,7 +13,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -35,12 +35,12 @@ android {
 
 dependencies {
 
+    implementation project(':common')
     implementation appDependencies.kotlin
-    implementation appDependencies.core
-    implementation appDependencies.appCompact
-    implementation appDependencies.androidMaterial
+    implementation appDependencies.rxJava
+    implementation appDependencies.rxAndroid
 
     testImplementation appTestDependencies.jUnit
     androidTestImplementation appTestDependencies.extJunit
-    androidTestImplementation appTestDependencies.espressoCore
+    testImplementation appTestDependencies.mockitoKotlin
 }

@@ -16,6 +16,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -24,6 +25,19 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", 'BASE_URL', '"https://5f7c2c8400bd74001690a583.mockapi.io"'
+            buildConfigField "String", 'PATH', '"/api/v1"'
+            buildConfigField "String", 'PEOPLE', '"people"'
+        }
+        debug {
+            buildConfigField "String", 'BASE_URL', '"https://5f7c2c8400bd74001690a583.mockapi.io"'
+            buildConfigField "String", 'PATH', '"/api/v1"'
+            buildConfigField "String", 'PEOPLE', '"people"'
+        }
+        staging {
+            buildConfigField "String", 'BASE_URL', '"https://5f7c2c8400bd74001690a583.mockapi.io"'
+            buildConfigField "String", 'PATH', '"/api/v1"'
+            buildConfigField "String", 'PEOPLE', '"people"'
         }
     }
     compileOptions {
@@ -41,18 +55,39 @@ android {
 
 dependencies {
 
-    implementation project (':designcomponents')
+    implementation project(':designcomponents')
+    implementation project(':colleagues')
+    implementation project(':common')
+
     implementation appDependencies.kotlin
     implementation appDependencies.core
     implementation appDependencies.appCompact
     implementation appDependencies.androidMaterial
     implementation appDependencies.constrainLayout
+    implementation appDependencies.support
     implementation appDependencies.navFragment
     implementation appDependencies.navUI
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+      implementation appDependencies.retrofit
+      implementation appDependencies.rxJavaAdapter
+      implementation appDependencies.gsonConverter
+      implementation appDependencies.koin
+      implementation appDependencies.koinScope
+      implementation appDependencies.koinViewModel
+
+      implementation appDependencies.rxJava
+      implementation appDependencies.rxAndroid
+      implementation appDependencies.viewModel
+      implementation appDependencies.viewmodelState
+      implementation appDependencies.glide
+      kapt appDependencies.glideCompiler
+      implementation appDependencies.loggingInterceptor
 
     testImplementation appTestDependencies.jUnit
     androidTestImplementation appTestDependencies.extJunit
     androidTestImplementation appTestDependencies.espressoCore
+    testImplementation appTestDependencies.coreRuntime
+    testImplementation appTestDependencies.coreTesting
+    testImplementation appTestDependencies.mockitoKotlin
 
 }
