@@ -66,7 +66,7 @@ class ColleaguesViewModelTest {
     }
 
     @Test
-    fun test_data_emitted_is_listOf_characters() {
+    fun test_data_emitted_is_listOf_colleagues() {
         val colleagues = ColleaguesFactory.makeColleaguesResponse()
         stubWheneverThenReturn(Single.just(colleagues))
         colleaguesViewModel.getColleagues()

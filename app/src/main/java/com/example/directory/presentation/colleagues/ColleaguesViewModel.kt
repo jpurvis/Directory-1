@@ -12,13 +12,14 @@ open class ColleaguesViewModel(
     private val getColleagues: GetColleagues
 ) : ViewModel() {
 
-    val loadingError = MutableLiveData<String>()
     private val _colleagues = MutableLiveData<Resource<List<PeopleResponseItem>>>()
     val colleagues: LiveData<Resource<List<PeopleResponseItem>>> get() = _colleagues
+    private val _progress = MutableLiveData<Boolean>()
+    val progress: LiveData<Boolean> get() = _progress
 
     init {
-        loadingError.value = ""
         getColleagues()
+        _progress.value = true
     }
 
     fun getColleagues() {
@@ -30,11 +31,12 @@ open class ColleaguesViewModel(
         DisposableSingleObserver<List<PeopleResponseItem>>() {
         override fun onSuccess(colleagues: List<PeopleResponseItem>) {
             _colleagues.value = Resource.Success(colleagues)
+            _progress.value = false
         }
 
         override fun onError(e: Throwable) {
             _colleagues.value = Resource.Error(e.message)
-            loadingError.postValue(e.message)
+            _progress.value = false
         }
 
     }

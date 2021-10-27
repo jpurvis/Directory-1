@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.common.utils.Resource
@@ -30,6 +29,7 @@ class ColleaguesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         initViews()
+        observeProgressData()
         observeData()
     }
 
@@ -71,12 +71,21 @@ class ColleaguesFragment : Fragment() {
         })
     }
 
+    private fun observeProgressData() {
+        viewModel.progress.observe(viewLifecycleOwner, { status ->
+            when (status) {
+                true -> showProgressBar()
+                false -> hideProgressBar()
+            }
+        })
+    }
+
     private fun hideProgressBar() {
-        progressBar.visibility = View.GONE
+        binding?.progressBar?.visibility = View.GONE
     }
 
     private fun showProgressBar() {
-        progressBar.visibility = View.VISIBLE
+        binding?.progressBar?.visibility = View.VISIBLE
     }
 
 }

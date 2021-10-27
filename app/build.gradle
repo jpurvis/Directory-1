@@ -28,16 +28,19 @@ android {
             buildConfigField "String", 'BASE_URL', '"https://5f7c2c8400bd74001690a583.mockapi.io"'
             buildConfigField "String", 'PATH', '"/api/v1"'
             buildConfigField "String", 'PEOPLE', '"people"'
+            buildConfigField "String", 'ROOMS', '"rooms"'
         }
         debug {
             buildConfigField "String", 'BASE_URL', '"https://5f7c2c8400bd74001690a583.mockapi.io"'
             buildConfigField "String", 'PATH', '"/api/v1"'
             buildConfigField "String", 'PEOPLE', '"people"'
+            buildConfigField "String", 'ROOMS', '"rooms"'
         }
         staging {
             buildConfigField "String", 'BASE_URL', '"https://5f7c2c8400bd74001690a583.mockapi.io"'
             buildConfigField "String", 'PATH', '"/api/v1"'
             buildConfigField "String", 'PEOPLE', '"people"'
+            buildConfigField "String", 'ROOMS', '"rooms"'
         }
     }
     compileOptions {
@@ -58,6 +61,7 @@ dependencies {
 
     implementation project(':designcomponents')
     implementation project(':colleagues')
+    implementation project(':rooms')
     implementation project(':common')
 
     implementation appDependencies.kotlin
