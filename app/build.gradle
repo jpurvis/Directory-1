@@ -29,16 +29,16 @@ android {
             buildConfigField "String", 'PATH', '"/api/v1"'
             buildConfigField "String", 'PEOPLE', '"people"'
         }
-//        debug {
-//            buildConfigField "String", 'BASE_URL', '"https://5f7c2c8400bd74001690a583.mockapi.io"'
-//            buildConfigField "String", 'PATH', '"/api/v1"'
-//            buildConfigField "String", 'PEOPLE', '"people"'
-//        }
-//        staging {
-//            buildConfigField "String", 'BASE_URL', '"https://5f7c2c8400bd74001690a583.mockapi.io"'
-//            buildConfigField "String", 'PATH', '"/api/v1"'
-//            buildConfigField "String", 'PEOPLE', '"people"'
-//        }
+        debug {
+            buildConfigField "String", 'BASE_URL', '"https://5f7c2c8400bd74001690a583.mockapi.io"'
+            buildConfigField "String", 'PATH', '"/api/v1"'
+            buildConfigField "String", 'PEOPLE', '"people"'
+        }
+        staging {
+            buildConfigField "String", 'BASE_URL', '"https://5f7c2c8400bd74001690a583.mockapi.io"'
+            buildConfigField "String", 'PATH', '"/api/v1"'
+            buildConfigField "String", 'PEOPLE', '"people"'
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
