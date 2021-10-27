@@ -48,8 +48,15 @@ android {
         jvmTarget = '1.8'
     }
 
-    buildFeatures{
-         viewBinding true
+    buildFeatures {
+        viewBinding true
+    }
+
+    packagingOptions {
+        exclude 'NOTICE'
+        exclude 'asm-license.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
     }
 }
 
@@ -68,20 +75,20 @@ dependencies {
     implementation appDependencies.navFragment
     implementation appDependencies.navUI
 
-      implementation appDependencies.retrofit
-      implementation appDependencies.rxJavaAdapter
-      implementation appDependencies.gsonConverter
-      implementation appDependencies.koin
-      implementation appDependencies.koinScope
-      implementation appDependencies.koinViewModel
+    implementation appDependencies.retrofit
+    implementation appDependencies.rxJavaAdapter
+    implementation appDependencies.gsonConverter
+    implementation appDependencies.koin
+    implementation appDependencies.koinScope
+    implementation appDependencies.koinViewModel
 
-      implementation appDependencies.rxJava
-      implementation appDependencies.rxAndroid
-      implementation appDependencies.viewModel
-      implementation appDependencies.viewmodelState
-      implementation appDependencies.glide
-      kapt appDependencies.glideCompiler
-      implementation appDependencies.loggingInterceptor
+    implementation appDependencies.rxJava
+    implementation appDependencies.rxAndroid
+    implementation appDependencies.viewModel
+    implementation appDependencies.viewmodelState
+    implementation appDependencies.glide
+    kapt appDependencies.glideCompiler
+    implementation appDependencies.loggingInterceptor
 
     testImplementation appTestDependencies.jUnit
     androidTestImplementation appTestDependencies.extJunit
