@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 apply from: '../dependencies.gradle'
 
@@ -13,7 +14,7 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -21,6 +22,19 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", 'BASE_URL', '"https://5f7c2c8400bd74001690a583.mockapi.io"'
+            buildConfigField "String", 'PATH', '"/api/v1"'
+            buildConfigField "String", 'PEOPLE', '"people"'
+        }
+        debug {
+            buildConfigField "String", 'BASE_URL', '"https://5f7c2c8400bd74001690a583.mockapi.io"'
+            buildConfigField "String", 'PATH', '"/api/v1"'
+            buildConfigField "String", 'PEOPLE', '"people"'
+        }
+        staging {
+            buildConfigField "String", 'BASE_URL', '"https://5f7c2c8400bd74001690a583.mockapi.io"'
+            buildConfigField "String", 'PATH', '"/api/v1"'
+            buildConfigField "String", 'PEOPLE', '"people"'
         }
     }
     compileOptions {
@@ -43,6 +57,9 @@ dependencies {
     implementation appDependencies.appCompact
     implementation appDependencies.androidMaterial
     implementation appDependencies.constrainLayout
+
+    implementation appDependencies.glide
+    kapt appDependencies.glideCompiler
 
     testImplementation appTestDependencies.jUnit
     androidTestImplementation appTestDependencies.extJunit

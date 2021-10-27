@@ -2,6 +2,7 @@ package com.example.designcomponents
 
 import android.content.Context
 import android.graphics.drawable.Drawable
+import android.net.Uri
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import android.widget.ImageView
 import androidx.annotation.IntDef
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
+import com.bumptech.glide.Glide
 import com.example.designcomponents.ListItemView.ActionType.Companion.CHEVRON
 import com.example.designcomponents.ListItemView.ActionType.Companion.NONE
 import com.example.designcomponents.ListItemView.ActionType.Companion.TOGGLE_SWITCH
@@ -46,7 +48,7 @@ class ListItemView @JvmOverloads constructor(
 
     protected open fun setUpAttributes(attributes: AttributeSet) {
         context.getStyledAttributes(attributes, R.styleable.ListItemView) {
-            setIconStart(getDrawable(R.styleable.ListItemView_iconStart))
+            setIconStart(getString(R.styleable.ListItemView_iconStart))
             setLabelText(getString(R.styleable.ListItemView_labelText))
             setActionEnd(getInt(R.styleable.ListItemView_actionEnd, CHEVRON))
         }
@@ -76,10 +78,11 @@ class ListItemView @JvmOverloads constructor(
         }
     }
 
-    fun setIconStart(icon: Drawable?) {
+    fun setIconStart(icon: String?) {
         with(getIconRef()) {
             icon?.let {
-                setImageDrawable(it)
+                Glide.with(context).load(it).into(binding.iconProfile)
+                //setImageURI(Uri.parse(icon))
                 isVisible = true
             } ?: run { isVisible = false }
         }

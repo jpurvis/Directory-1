@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="11" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="Directory.app" target="11" />
+      <module name="Directory.colleagues" target="11" />
+      <module name="Directory.designcomponents" target="11" />
+      <module name="Directory.rooms" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

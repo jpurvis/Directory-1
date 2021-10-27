@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/colleaguesFragment"
-        android:name="com.example.directory.ColleaguesFragment"
+        android:name="com.example.directory.presentation.colleagues.ColleaguesFragment"
         android:label="@string/colleagues"
         tools:layout="@layout/fragment_colleagues" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/roomsFragment"
-        android:name="com.example.directory.RoomsFragment"
+        android:name="com.example.directory.presentation.rooms.RoomsFragment"
         android:label="@string/rooms"
         tools:layout="@layout/fragment_rooms" />
 </navigation>
