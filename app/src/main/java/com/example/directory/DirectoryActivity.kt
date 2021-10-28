@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.directory.databinding.ActivityDirectoryBinding
@@ -19,10 +20,12 @@ class DirectoryActivity : AppCompatActivity() {
         }
 
         navController = Navigation.findNavController(this, R.id.navHostFragment)
-        binding?.let {
-            it.directoryBottomNav.setupWithNavController(navController)
-        }
+        binding?.directoryBottomNav?.setupWithNavController(navController)
         setupActionBarWithNavController(navController)
+    }
 
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.navHostFragment)
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 }

@@ -13,10 +13,24 @@
         <action
             android:id="@+id/action_colleaguesFragment2_to_roomsFragment2"
             app:destination="@id/roomsFragment" />
+        <action
+            android:id="@+id/action_colleaguesFragment_to_colleagueDetailsFragment"
+            app:destination="@id/colleagueDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/roomsFragment"
         android:name="com.example.directory.presentation.rooms.RoomsFragment"
         android:label="@string/rooms"
         tools:layout="@layout/fragment_rooms" />
+    <fragment
+        android:id="@+id/colleagueDetailsFragment"
+        android:name="com.example.directory.presentation.colleagues.ColleagueDetailsFragment"
+        android:label="Colleague Details">
+    <argument
+        android:name="peopleResponseData"
+        app:argType="com.example.colleagues.domain.PeopleResponseItem"/>
+        <action
+            android:id="@+id/action_colleagueDetailsFragment_to_colleaguesFragment"
+            app:destination="@id/colleaguesFragment" />
+    </fragment>
 </navigation>

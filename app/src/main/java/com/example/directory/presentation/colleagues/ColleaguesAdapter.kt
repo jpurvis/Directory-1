@@ -32,6 +32,9 @@ class ColleaguesAdapter(
                 with(colleagues[position]) {
                     setLabelText("$firstName $lastName")
                     setIconStart(avatar)
+                    setClickListener {
+                        clickListener.onClick(colleagues[position])
+                    }
                 }
             }
         }

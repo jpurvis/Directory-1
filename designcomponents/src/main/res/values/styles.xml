@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-
     <!-- Component Styles -->
     <style name="ClickableForeground" parent="Surface.Ripple.Foreground">
         <item name="android:layout_width">match_parent</item>
@@ -64,6 +63,28 @@
     <style name="Surface.Ripple.Foreground">
         <item name="android:theme">@style/Surface.Ripple</item>
         <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="ListSummary">
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="ListSummary.Normal">
+        <item name="android:textAppearance">?textAppearanceBody1</item>
+    </style>
+
+    <style name="ListSummary.Normal.Left">
+        <item name="android:textColor">@color/grey</item>
+    </style>
+
+    <style name="ListSummary.Normal.Right">
+        <item name="android:textColor">?colorOnSurface</item>
+    </style>
+
+    <style name="ListSummary.Bold">
+        <item name="android:textAppearance">?textAppearanceBody1</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?colorOnSurface</item>
     </style>
 
 </resources>

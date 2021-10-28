@@ -5,18 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.common.utils.Resource
 import com.example.directory.databinding.FragmentColleaguesBinding
 import kotlinx.android.synthetic.main.fragment_colleagues.*
+import org.koin.android.viewmodel.ext.android.sharedViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
 class ColleaguesFragment : Fragment() {
 
     private var binding: FragmentColleaguesBinding? = null
-    private val viewModel: ColleaguesViewModel by viewModel()
+    private val viewModel: ColleaguesViewModel by sharedViewModel()
     private lateinit var colleaguesAdapter: ColleaguesAdapter
 
     override fun onCreateView(
@@ -37,7 +39,9 @@ class ColleaguesFragment : Fragment() {
     private fun initViews() {
         colleaguesAdapter =
             ColleaguesAdapter(arrayListOf(), ColleaguesAdapter.OnColleagueItemClick {
-
+                findNavController().navigate(
+                    ColleaguesFragmentDirections.actionColleaguesFragmentToColleagueDetailsFragment(it)
+                )
             })
         rv_colleagues.apply {
             layoutManager =
