@@ -8,6 +8,9 @@
     <dimen name="list_item_label_start_margin_icon">24dp</dimen>
     <dimen name="content_padding_internal_horizontal">16dp</dimen>
     <dimen name="list_item_label_start_margin_noicon">0dp</dimen>
+    
+    <!--List Summary Component-->
+    <dimen name="list_summary_vertical_margin">16dp</dimen>
 
     <!--Image size-->
     <dimen name="image_medium">60dp</dimen>

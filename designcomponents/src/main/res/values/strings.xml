@@ -2,5 +2,6 @@
     <string name="app_name">designComponents</string>
     <string name="default_text_label">Label</string>
     <string name="label">Label</string>
-    <string name="profileicon">ProfileIcon</string>
+    <string name="profile_icon">ProfileIcon</string>
+    <string name="default_text_paragraph">Paragraph</string>
 </resources>

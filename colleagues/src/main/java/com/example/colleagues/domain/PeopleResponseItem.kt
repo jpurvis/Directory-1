@@ -1,5 +1,9 @@
 package com.example.colleagues.domain
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class PeopleResponseItem(
     val avatar: String,
     val createdAt: String,
@@ -12,4 +16,4 @@ data class PeopleResponseItem(
     val latitude: Double,
     val longitude: Double,
     val phone: String
-)
+) : Parcelable

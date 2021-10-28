@@ -9,5 +9,6 @@
     <color name="colorOnSecondary">#000000</color>
 
     <color name="surface">#FFFFFF</color>
+    <color name="grey">#515660</color>
 
 </resources>

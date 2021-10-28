@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--Global Attributes-->
+    <declare-styleable name="GlobalAttrDeclare">
+        <attr name="labelStartText" format="string" />
+        <attr name="labelEndText" format="string" />
+        <attr name="labelBoldStyleEnabled" format="boolean" />
+
+    </declare-styleable>
+
     <!-- List View Components -->
     <declare-styleable name="ListItemView">
         <attr name="iconStart" format="reference" />
@@ -10,6 +18,12 @@
             <enum name="chevron" value="1" />
             <enum name="toggleSwitch" value="2" />
         </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ListSummaryView">
+        <attr name="labelStartText" />
+        <attr name="labelEndText" />
+        <attr name="labelBoldStyleEnabled" />
     </declare-styleable>
 
 </resources>

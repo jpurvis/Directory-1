@@ -16,6 +16,8 @@ open class ColleaguesViewModel(
     val colleagues: LiveData<Resource<List<PeopleResponseItem>>> get() = _colleagues
     private val _progress = MutableLiveData<Boolean>()
     val progress: LiveData<Boolean> get() = _progress
+    private val _colleagueData = MutableLiveData<PeopleResponseItem>()
+    val colleagueData: LiveData<PeopleResponseItem> get() = _colleagueData
 
     init {
         getColleagues()
@@ -24,6 +26,10 @@ open class ColleaguesViewModel(
 
     fun getColleagues() {
         getColleagues.execute(ColleaguesSubscriber())
+    }
+
+    fun initArgs(colleagueData: PeopleResponseItem) {
+          _colleagueData.value = colleagueData
     }
 
 
