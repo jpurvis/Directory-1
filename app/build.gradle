@@ -32,18 +32,21 @@ android {
             applicationId envConfig.getProperty("APPLICATION_ID").replace("","")
             versionCode envConfig.VERSION_CODE.replace("","").toInteger()
             versionName envConfig.VERSION_NAME.replace("","")
+            resValue "string", "app_name", "Directory(Dev)"
         }
         stg {
             envConfig = getEnvProperties("../config/stg")
             applicationId envConfig.getProperty("APPLICATION_ID").replace("","")
             versionCode envConfig.VERSION_CODE.replace("","").toInteger()
             versionName envConfig.VERSION_NAME.replace("","")
+            resValue "string", "app_name", "Directory(Stg)"
         }
         prod {
             envConfig = getEnvProperties("../config/prod")
             applicationId envConfig.getProperty("APPLICATION_ID").replace("","")
             versionCode envConfig.VERSION_CODE.replace("","").toInteger()
             versionName envConfig.VERSION_NAME.replace("","")
+            resValue "string", "app_name", "Directory"
         }
     }
 
