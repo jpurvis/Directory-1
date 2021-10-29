@@ -1,3 +1,6 @@
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext.kotlin_version = "1.5.0"
@@ -21,6 +24,45 @@ allprojects {
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
     }
+}
+
+ext{
+    flavor = getCurrentFlavor()
+    if(flavor.isEmpty()) {
+        flavor = "dev"
+        config = getProps('config/' + flavor + '.properties')
+    }
+}
+
+def getCurrentFlavor() {
+    Gradle gradle = getGradle()
+    def pattern = Pattern.compile("([A-Z][A-Za]+)(Release|Debug)")
+    def flavor = ""
+
+    gradle.getStartParameter().getTaskNames().any {name ->
+        Matcher matcher = pattern.matcher(name)
+        if(matcher.find()) {
+            flavor = matcher.group(1).toLowerCase()
+            return true
+        }
+    }
+    return flavor
+}
+
+def getProps(path) {
+    Properties props = new Properties()
+    props.load(new FileInputStream(file(path)))
+    return props
+}
+
+def getEnvProperties(String env) {
+    def envProperties = new Properties()
+    def basePath = rootDir.absolutePath + "/config/"
+    def propertiesFilename = env.toLowerCase() + ".properties"
+    envProperties.load(
+            new FileInputStream(rootProject.file(basePath + propertiesFilename))
+    )
+    return envProperties
 }
 
 task clean(type: Delete) {

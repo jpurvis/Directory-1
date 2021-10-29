@@ -13,36 +13,44 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.directory"
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+        rootProject.ext.config.each { p ->
+           if(p.key != 'VERSION_CODE' && p.key != 'VERSION_NAME' && p.key != 'APPLICATION_ID')
+               buildConfigField 'String', p.key, p.value
+        }
+    }
+
+    def envConfig
+    flavorDimensions "default"
+    productFlavors {
+        dev {
+          envConfig = getEnvProperties("../config/dev")
+            applicationId envConfig.getProperty("APPLICATION_ID").replace("","")
+            versionCode envConfig.VERSION_CODE.replace("","").toInteger()
+            versionName envConfig.VERSION_NAME.replace("","")
+        }
+        stg {
+            envConfig = getEnvProperties("../config/stg")
+            applicationId envConfig.getProperty("APPLICATION_ID").replace("","")
+            versionCode envConfig.VERSION_CODE.replace("","").toInteger()
+            versionName envConfig.VERSION_NAME.replace("","")
+        }
+        prod {
+            envConfig = getEnvProperties("../config/prod")
+            applicationId envConfig.getProperty("APPLICATION_ID").replace("","")
+            versionCode envConfig.VERSION_CODE.replace("","").toInteger()
+            versionName envConfig.VERSION_NAME.replace("","")
+        }
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField "String", 'BASE_URL', '"https://5f7c2c8400bd74001690a583.mockapi.io"'
-            buildConfigField "String", 'PATH', '"/api/v1"'
-            buildConfigField "String", 'PEOPLE', '"people"'
-            buildConfigField "String", 'ROOMS', '"rooms"'
-        }
-        debug {
-            buildConfigField "String", 'BASE_URL', '"https://5f7c2c8400bd74001690a583.mockapi.io"'
-            buildConfigField "String", 'PATH', '"/api/v1"'
-            buildConfigField "String", 'PEOPLE', '"people"'
-            buildConfigField "String", 'ROOMS', '"rooms"'
-        }
-        staging {
-            buildConfigField "String", 'BASE_URL', '"https://5f7c2c8400bd74001690a583.mockapi.io"'
-            buildConfigField "String", 'PATH', '"/api/v1"'
-            buildConfigField "String", 'PEOPLE', '"people"'
-            buildConfigField "String", 'ROOMS', '"rooms"'
         }
     }
     compileOptions {

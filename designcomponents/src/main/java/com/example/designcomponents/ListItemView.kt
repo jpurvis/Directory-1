@@ -82,7 +82,6 @@ class ListItemView @JvmOverloads constructor(
         with(getIconRef()) {
             icon?.let {
                 Glide.with(context).load(it).into(binding.iconProfile)
-                //setImageURI(Uri.parse(icon))
                 isVisible = true
             } ?: run { isVisible = false }
         }
